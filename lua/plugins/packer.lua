@@ -52,6 +52,12 @@ return packer.startup(function(use)
     use({ "hrsh7th/cmp-buffer", commit = "62fc67a2b0205136bc3e312664624ba2ab4a9323" })
     use({ "hrsh7th/cmp-path", commit = "981baf9525257ac3269e1b6701e376d6fbff6921" })
 
+    -- LuaSnip
+    -- Snippet Engine for Neovim written in Lua.
+    -- Github link: https://github.com/L3MON4D3/LuaSnip.git
+    use({ "L3MON4D3/LuaSnip", commit = "7d78278c2a935b8cd1b6b43065223e14490f3133" })
+    use({ "rafamadriz/friendly-snippets", commit = "0e516c9d9892d6bf268492136971d315dd704d16" })
+
 	-- Automatically set up your configuration after cloning packer.nvim.
 	-- Put this at the end after all plugins.
 	if PACKER_BOOTSTRAP then
