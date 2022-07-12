@@ -4,8 +4,10 @@ if not status_ok then
     return
 end
 
+Servers = { "sumneko_lua", "pyright", "tsserver" }
+
 local options = {
-    ensure_installed = { "sumneko_lua", "pyright", "tsserver" },
+    ensure_installed = Servers,
     ui = {
         icons = {
             server_installed = " ",

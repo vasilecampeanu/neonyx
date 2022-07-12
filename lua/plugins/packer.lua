@@ -43,10 +43,15 @@ return packer.startup(function(use)
 	-- Github link: https://github.com/nvim-lua/plenary.nvim.git
     use({ "nvim-lua/plenary.nvim", commit = "986ad71ae930c7d96e812734540511b4ca838aa2" })
     
-    -- dracula.nvim
-    -- Default colorscheme
-	-- Github link: https://github.com/Mofiqul/dracula.nvim.git
-    use({ "Mofiqul/dracula.nvim", commit = "40d38e95bf006470b3efe837b2e0b9f66707c850" })
+    -- Web devicons
+    -- Adds file type icons to NVim plugins
+    -- Github link: https://github.com/kyazdani42/nvim-web-devicons
+    use { "kyazdani42/nvim-web-devicons", commit = "2d02a56189e2bde11edd4712fea16f08a6656944" }
+
+    -- Onedarker colorscheme
+    -- Onedark inspired colorscheme written in lua
+    -- Github link: https://github.com/lunarvim/onedarker
+    use { "lunarvim/onedarker", commit = "724aa3ab5efbdfe83ae0ea1ad9d44166b1685ba8" }
     
     -- Language server protocol stuff
 	
