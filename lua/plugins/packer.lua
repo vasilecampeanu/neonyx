@@ -147,6 +147,23 @@ return packer.startup(function(use)
 
     -- File management 
 
+    -- Nvim tree explorer
+    -- Github link: https://github.com/kyazdani42/nvim-tree.lua
+    use {
+        "kyazdani42/nvim-tree.lua",
+        requires = { "kyazdani42/nvim-web-devicons" },
+        commit = "ad1f3ef3bc86ca43ebf488569aadf6f56e448575"
+    }
+
+    -- Telescope
+    -- Find, Filter, Preview, Pick. All lua, all the time
+    -- Github link: https://github.com/nvim-telescope/telescope.nvim
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = { {"nvim-lua/plenary.nvim"} },
+        commit = "10a3310546284faae4ada397a61d68e0a8d0d9f7"
+    }
+
 	-- Automatically set up your configuration after cloning packer.nvim.
 	-- Put this at the end after all plugins.
 	if PACKER_BOOTSTRAP then

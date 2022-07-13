@@ -15,3 +15,5 @@ require("plugins.treesitter")
 require("plugins.comment")
 require("plugins.autopairs")
 
+-- Accesibility
+require("plugins.nvim-tree")
