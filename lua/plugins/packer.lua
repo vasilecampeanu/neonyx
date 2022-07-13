@@ -109,11 +109,6 @@ return packer.startup(function(use)
     use({ "rafamadriz/friendly-snippets", commit = "0e516c9d9892d6bf268492136971d315dd704d16" })
 
     -- Code related plugins
-    -- vim-illuminate
-    -- Github link: https://github.com/RRethy/vim-illuminate.git
-    use { "RRethy/vim-illuminate", commit = "6bfa5dc069bd4aa8513a3640d0b73392094749be" }
-
-    -- Code related plugins
 
     -- nvim-treesitter
     -- Code higlisght support    
@@ -123,6 +118,20 @@ return packer.startup(function(use)
         commit = "6f1bf2feec45ff7c9d7844602fe175907b7db633",
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
     }
+
+    -- vim-illuminate
+    -- Github link: https://github.com/RRethy/vim-illuminate.git
+    use { "RRethy/vim-illuminate", commit = "6bfa5dc069bd4aa8513a3640d0b73392094749be" }
+
+    -- Comment.nvim
+    -- Intelligent comments
+    -- Github links: https://github.com/numToStr/Comment.nvim
+    use { "numToStr/Comment.nvim", commit = "4086630ce2aaf76b2652516ee3169f0b558f6be1" }
+
+    -- nvim-ts-context-commentstring
+    -- Smart comments in files with multiple languages like .jsx & .tsx
+    -- Github links: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+    use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
 
     -- nvim-autopairs
     -- Get autopairs completion working

@@ -12,5 +12,6 @@ require("plugins.gitsigns")
 
 -- Code related
 require("plugins.treesitter")
+require("plugins.comment")
 require("plugins.autopairs")
 
