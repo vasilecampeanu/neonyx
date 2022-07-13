@@ -6,3 +6,6 @@ require("plugins.lsp")
 
 -- Load plugin configs
 require("plugins.cmp")
+
+-- Code related
+require("plugins.treesitter")
