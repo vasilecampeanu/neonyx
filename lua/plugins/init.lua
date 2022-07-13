@@ -7,5 +7,10 @@ require("plugins.lsp")
 -- Load plugin configs
 require("plugins.cmp")
 
+-- Version Control
+require("plugins.gitsigns")
+
 -- Code related
 require("plugins.treesitter")
+require("plugins.autopairs")
+

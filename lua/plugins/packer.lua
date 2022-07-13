@@ -116,7 +116,7 @@ return packer.startup(function(use)
     -- Code related plugins
 
     -- nvim-treesitter
-    -- Treesitter configurations and abstraction layer
+    -- Code higlisght support    
     -- Github link: https://github.com/nvim-treesitter/nvim-treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -124,7 +124,17 @@ return packer.startup(function(use)
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
     }
 
+    -- nvim-autopairs
+    -- Get autopairs completion working
+    -- Github link: https://github.com/windwp/nvim-autopairs
+    use { "windwp/nvim-autopairs", commit = "972a7977e759733dd6721af7bcda7a67e40c010e" }
+
     -- Version control & Project manaement
+
+    -- gitsigns.nvim
+    -- Show git signs on sig left sign column
+    -- Github link: https://github.com/lewis6991/gitsigns.nvim
+    use { "lewis6991/gitsigns.nvim", commit = "4883988cf8b623f63cc8c7d3f11b18b7e81f06ff" }
 
     -- File management 
 
