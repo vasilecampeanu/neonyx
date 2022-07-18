@@ -5,7 +5,13 @@
 
 -- Core configurations
 require("core.options")
+
+-- Hotkeys initialization
 require("core.keympas")
+
+vim.defer_fn(function()
+    require("core.utils").load_mappings()
+ end, 0)
 
 ---
 

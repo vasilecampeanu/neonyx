@@ -3,6 +3,8 @@
 -- Description : Used to setup keybinds                    --
 -------------------------------------------------------------
 
+local M = {}
+
 -- Local variables
 local keymap = vim.keymap.set
 local opts = {
@@ -24,7 +26,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<leader>fh", "<cmd>nohlsearch<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -35,3 +37,34 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Telescope keybinds
+M.telescope = {
+    n = {
+        -- Find files
+        ["<leader>ff"] = {"<cmd> Telescope find_files <CR>", "  find files"},
+        ["<leader>fa"] = {"<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all"},
+        ["<leader>fw"] = {"<cmd> Telescope live_grep <CR>", "   live grep"},
+        ["<leader>fb"] = {"<cmd> Telescope buffers <CR>", "  find buffers"},
+        ["<leader>fo"] = {"<cmd> Telescope oldfiles <CR>", "   find oldfiles"},
+
+        -- Git stuff
+        ["<leader>gc"] = {"<cmd> Telescope git_commits <CR>", "  git commits"},
+        ["<leader>gs"] = {"<cmd> Telescope git_status <CR>", "  git status"},
+
+        -- Other
+        ["<leader>wk"] = {"<cmd> Telescope keymaps <CR>", "   show keys"},
+    }
+}
+
+M.groups = {
+    n = {
+        ["<leader>"] = {
+            f = { name = "Files" },
+            g = { name = "Git" },
+            w = { name = "Window" }
+        },
+    },
+}
+
+return M

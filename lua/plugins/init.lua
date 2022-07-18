@@ -67,7 +67,7 @@ local plugins = {
     -- Find, Filter, Preview, Pick. All lua, all the time
     -- Github link: https://github.com/nvim-telescope/telescope.nvim
     ["nvim-telescope/telescope.nvim"] = {
-        commit = "6bddc38c25af7b50f99cb0c035248d7272971810",
+        commit = "b79cd6c88b3d96b0f49cb7d240807cd59b610cd8",
         cmd = "Telescope",
         config = function()
             require("plugins.configs.telescope")
@@ -86,6 +86,13 @@ local plugins = {
         commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71",
         config = function()
             require("which-key").setup {}
+
+            local utils = require "core.utils"
+
+            local mappings = utils.load_config().mappings
+            local mapping_groups = { groups = vim.deepcopy(mappings.groups) }
+            
+            utils.load_mappings(mapping_groups)
         end
     }
 }
