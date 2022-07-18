@@ -4,7 +4,7 @@
 -- and initialize confgs for plugins                       --
 -------------------------------------------------------------
 
--- Firs add packer
+-- First add packer
 vim.cmd "packadd packer.nvim"
 
 local plugins = {
@@ -51,11 +51,25 @@ local plugins = {
             -- Variables
             local colorscheme = "onedarker"
             local present, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-            
+
             -- Check presence
             if not present then
                 return
             end
+        end
+    },
+
+    ---------------------
+    -- File Management --
+    ---------------------
+
+    -- Telescope
+    -- Find, Filter, Preview, Pick. All lua, all the time
+    -- Github link: https://github.com/nvim-telescope/telescope.nvim
+    ["nvim-telescope/telescope.nvim"] = {
+        cmd = "Telescope",
+        config = function()
+            require "plugins.configs.telescope"
         end
     }
 }
