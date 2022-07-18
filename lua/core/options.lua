@@ -89,7 +89,8 @@ local default_plugins = {
     "bugreport",
     "ftplugin",
 }
- 
+
+-- Apply plugin remove
 for _, plugin in pairs(default_plugins) do
     vim.g["loaded_" .. plugin] = 1
 end

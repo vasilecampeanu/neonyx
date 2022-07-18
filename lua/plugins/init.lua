@@ -42,7 +42,13 @@ local plugins = {
     ["lunarvim/onedarker"] = {
         commit = "b79ebd09779472c00e19c38caf698aa43b51fe1c",
         config = function()
-            require("plugins.configs.colorscheme")
+            local colorscheme = "onedarker"
+            local present, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+            
+            -- Check presence
+            if not present then
+                return
+            end
         end
     }
 }

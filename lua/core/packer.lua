@@ -51,6 +51,7 @@ M.run = function(plugins)
     -- Use a protected call so we don't error out on first use
     local present, packer = pcall(require, "packer")
 
+    -- Check presence
     if not present then
         return
     end

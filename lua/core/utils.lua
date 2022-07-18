@@ -13,7 +13,7 @@ M.remove_default_plugins = function(plugins)
     return plugins
 end
 
--- Merge default/user plugin tables
+-- Merge default/user's plugin tables
 M.merge_plugins = function(default_plugins)
     local user_plugins = {}
 
@@ -27,15 +27,6 @@ M.merge_plugins = function(default_plugins)
     end
 
     return final_table
-end
-
-M.packer_sync = function(...)
-    local packer_exists, packer = pcall(require, "packer")
-    if packer_exists then
-        packer.sync(...)
-    else
-        error "Packer could not be loaded!"
-    end
 end
 
 return M
