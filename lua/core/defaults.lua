@@ -1,5 +1,5 @@
 local M = {}
 
-M.mappings = require "core.keympas"
+M.mappings = require "core.keymaps"
 
 return M

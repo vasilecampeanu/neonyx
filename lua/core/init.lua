@@ -7,7 +7,7 @@
 require("core.options")
 
 -- Hotkeys initialization
-require("core.keympas")
+require("core.keymaps")
 
 ---
 
