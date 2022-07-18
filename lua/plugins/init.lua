@@ -88,8 +88,14 @@ local plugins = {
             require("which-key").setup {}
 
             local utils = require "core.utils"
+            
+            -- Load load Hotkeys
+            vim.defer_fn(function()
+                utils.load_mappings()
+            end, 0)
 
-            local mappings = utils.load_config().mappings
+            local mapping_config = require "core.defaults"
+            local mappings = mapping_config.mappings
             local mapping_groups = { groups = vim.deepcopy(mappings.groups) }
             
             utils.load_mappings(mapping_groups)

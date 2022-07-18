@@ -26,7 +26,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Clear highlights
-keymap("n", "<leader>fh", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<leader>wh", "  <cmd>nohlsearch<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -44,16 +44,16 @@ M.telescope = {
         -- Find files
         ["<leader>ff"] = {"<cmd> Telescope find_files <CR>", "  find files"},
         ["<leader>fa"] = {"<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all"},
-        ["<leader>fw"] = {"<cmd> Telescope live_grep <CR>", "   live grep"},
+        ["<leader>fw"] = {"<cmd> Telescope live_grep <CR>", "  live grep"},
         ["<leader>fb"] = {"<cmd> Telescope buffers <CR>", "  find buffers"},
-        ["<leader>fo"] = {"<cmd> Telescope oldfiles <CR>", "   find oldfiles"},
+        ["<leader>fo"] = {"<cmd> Telescope oldfiles <CR>", "  find oldfiles"},
 
         -- Git stuff
-        ["<leader>gc"] = {"<cmd> Telescope git_commits <CR>", "  git commits"},
-        ["<leader>gs"] = {"<cmd> Telescope git_status <CR>", "  git status"},
+        ["<leader>tgc"] = {"<cmd> Telescope git_commits <CR>", "  git commits"},
+        ["<leader>tgs"] = {"<cmd> Telescope git_status <CR>", "  git status"},
 
         -- Other
-        ["<leader>wk"] = {"<cmd> Telescope keymaps <CR>", "   show keys"},
+        ["<leader>wk"] = {"<cmd> Telescope keymaps <CR>", "  show keys"},
     }
 }
 
@@ -62,6 +62,7 @@ M.groups = {
         ["<leader>"] = {
             f = { name = "Files" },
             g = { name = "Git" },
+            t = { name = "Telescope" },
             w = { name = "Window" }
         },
     },

@@ -6,12 +6,6 @@ local M = {}
 
 local merge_tb = vim.tbl_deep_extend
 
--- Load configs
-M.load_config = function()
-    local config = require "core.defaults"
-    return config
-end
-
 -- Load keymaps
 M.load_mappings = function(mappings, mapping_opt)
     local set_maps
@@ -31,7 +25,8 @@ M.load_mappings = function(mappings, mapping_opt)
         end
     end
 
-    mappings = mappings or vim.deepcopy(M.load_config().mappings)
+    local mapping_config = require "core.defaults"
+    mappings = mappings or vim.deepcopy(mapping_config.mappings)
     mappings.lspconfig = nil
 
     for _, section in pairs(mappings) do
