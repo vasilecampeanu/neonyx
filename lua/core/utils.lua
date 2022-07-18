@@ -1,24 +1,7 @@
 local M = {}
 
--- Remove custom defined plugins
-M.remove_default_plugins = function(plugins)
-    local removals = {}
-
-    if not vim.tbl_isempty(removals) then
-        for _, plugin in pairs(removals) do
-            plugins[plugin] = nil
-        end
-    end
-
-    return plugins
-end
-
 -- Merge default/user's plugin tables
-M.merge_plugins = function(default_plugins)
-    local user_plugins = {}
-
-    default_plugins = vim.tbl_deep_extend("force", default_plugins, user_plugins)
-
+M.merge_plugin_list = function(default_plugins)
     local final_table = {}
 
     for key, _ in pairs(default_plugins) do

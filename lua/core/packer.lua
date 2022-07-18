@@ -5,6 +5,7 @@
 local M = {}
 
 -- Automatically install packer
+-- Make packer manage itself
 M.bootstrap = function()
     local fn = vim.fn
     local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
@@ -26,6 +27,7 @@ M.bootstrap = function()
     end
 end
 
+-- Packer options
 M.options = {
     auto_clean = true,
     compile_on_sync = true,
@@ -56,9 +58,8 @@ M.run = function(plugins)
         return
     end
 
-    -- Overrides
-    plugins = require("core.utils").remove_default_plugins(plugins)
-    plugins = require("core.utils").merge_plugins(plugins)
+    -- Compile plugin list
+    plugins = require("core.utils").merge_plugin_list(plugins)
 
     -- Initialize packer options
     packer.init(M.options)

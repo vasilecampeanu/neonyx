@@ -10,7 +10,7 @@ local plugins = {
     -- Package manager
     -- Github link: https://github.com/wbthomason/packer.nvim.git
     ["wbthomason/packer.nvim"] = {
-        commit = "e4c2afb37d31e99b399425e102c58b091fbc16be"
+        commit = "494fd5999b19e29992eb0978c4fa8988d2023ad8"
     },
 
     ---
@@ -53,4 +53,5 @@ local plugins = {
     }
 }
 
+-- Initialize configs
 require("core.packer").run(plugins)
