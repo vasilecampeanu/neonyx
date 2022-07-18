@@ -1,3 +1,9 @@
+-------------------------------------------------------------
+-- Author: Vasile Campeanu                                 -- 
+-- Description : The scope of this file is to manage       --
+-- and initialize confgs for plugins                       --
+-------------------------------------------------------------
+
 -- Firs add packer
 vim.cmd "packadd packer.nvim"
 
@@ -42,6 +48,7 @@ local plugins = {
     ["lunarvim/onedarker"] = {
         commit = "b79ebd09779472c00e19c38caf698aa43b51fe1c",
         config = function()
+            -- Variables
             local colorscheme = "onedarker"
             local present, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
             

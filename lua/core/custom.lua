@@ -1,3 +1,8 @@
+-------------------------------------------------------------
+-- Author: Vasile Campeanu                                 -- 
+-- Description : Custom configs will be put here           --
+-------------------------------------------------------------
+
 -- Custom GUI styles
 -- Remove vim background colore and use the terminal color.
 vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]

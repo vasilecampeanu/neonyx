@@ -1,3 +1,8 @@
+-------------------------------------------------------------
+-- Author: Vasile Campeanu                                 --
+-- Description : Default nvim options                      --
+-------------------------------------------------------------
+
 -- Basic Options
 local options = {
     -- Fileencoding

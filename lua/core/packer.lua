@@ -1,7 +1,8 @@
 -------------------------------------------------------------
--- Author: Vasile Campeanu                                 -- 
+-- Author: Vasile Campeanu                                 --
 -- Description : Plugin Management                         --
 -------------------------------------------------------------
+
 local M = {}
 
 -- Automatically install packer

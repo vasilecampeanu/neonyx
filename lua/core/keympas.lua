@@ -1,3 +1,8 @@
+-------------------------------------------------------------
+-- Author: Vasile Campeanu                                 --
+-- Description : Used to setup keybinds                    --
+-------------------------------------------------------------
+
 -- Local variables
 local keymap = vim.keymap.set
 local opts = {

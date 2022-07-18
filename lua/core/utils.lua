@@ -1,3 +1,8 @@
+-------------------------------------------------------------
+-- Author: Vasile Campeanu                                 -- 
+-- Description : Function dependencies                     --
+-------------------------------------------------------------
+
 local M = {}
 
 -- Merge default/user's plugin tables
