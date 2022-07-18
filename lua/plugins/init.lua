@@ -1,10 +1,10 @@
 -------------------------------------------------------------
--- Author: Vasile Campeanu                                 -- 
+-- Author: Vasile Campeanu                                 --
 -- Description : The scope of this file is to manage       --
 -- and initialize confgs for plugins                       --
 -------------------------------------------------------------
 
--- First add packer
+-- First, add packer
 vim.cmd "packadd packer.nvim"
 
 local plugins = {
@@ -63,13 +63,29 @@ local plugins = {
     -- File Management --
     ---------------------
 
-    -- Telescope
+    -- telescope.nvim
     -- Find, Filter, Preview, Pick. All lua, all the time
     -- Github link: https://github.com/nvim-telescope/telescope.nvim
     ["nvim-telescope/telescope.nvim"] = {
+        commit = "6bddc38c25af7b50f99cb0c035248d7272971810",
         cmd = "Telescope",
         config = function()
-            require "plugins.configs.telescope"
+            require("plugins.configs.telescope")
+        end
+    },
+
+    -------------
+    -- Hotkeys --
+    -------------
+
+    -- which-key.nvim
+    -- Hotkeys visualizer
+    -- Only load whichkey after all the gui
+    -- Github link: https://github.com/folke/which-key.nvim
+    ["folke/which-key.nvim"] = {
+        commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71",
+        config = function()
+            require("which-key").setup {}
         end
     }
 }
