@@ -1,5 +1,8 @@
+-- In this file resides configurations related to code highlight
+
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 
+-- We check if the plugin is installed
 if not status_ok then
 	return
 end
@@ -38,4 +41,3 @@ configs.setup({
 		enable = true,
     }
 })
-

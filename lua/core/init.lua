@@ -1,5 +1,9 @@
+-- Core configurations
 require("core.colorscheme")
 require("core.options")
 require("core.keympas")
-require("core.miscellaneous")
 
+---
+
+-- Custom settings
+require("core.custom")

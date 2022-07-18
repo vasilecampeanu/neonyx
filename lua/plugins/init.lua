@@ -1,19 +1,14 @@
--- Manage plugins
+-- Plugin management
 require("plugins.packer")
 
--- Language Server Protocol Stuff
-require("plugins.lsp")
+-- Code highlight
+require("plugins.treesitter")
 
 -- Load plugin configs
 require("plugins.cmp")
 
+-- Language Server Protocol Stuff
+require("plugins.lsp")
+
 -- Version Control
 require("plugins.gitsigns")
-
--- Code related
-require("plugins.treesitter")
-require("plugins.comment")
-require("plugins.autopairs")
-
--- Accesibility
-require("plugins.nvim-tree")
