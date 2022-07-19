@@ -59,6 +59,17 @@ local plugins = {
         end
     },
 
+    -- nvim-treesitter
+    -- Code higlisght support    
+    -- Github link: https://github.com/nvim-treesitter/nvim-treesitter
+    ["nvim-treesitter/nvim-treesitter"] = {
+        commit = "6f1bf2feec45ff7c9d7844602fe175907b7db633",
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+        config = function()
+            require("plugins.configs.treesitter")
+        end
+    },
+
     ---------------------
     -- File Management --
     ---------------------
