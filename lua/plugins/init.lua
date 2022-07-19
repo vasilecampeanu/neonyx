@@ -171,6 +171,17 @@ local plugins = {
         end
     },
 
+    ---
+    
+    -- Setting up fuggitive 
+    -- Powerfull git integration
+    -- Git link: https://github.com/tpope/vim-fugitive
+    ["tpope/vim-fugitive"] = {
+        commit = "d84582d5f767c11b7fb5ac2f5dca91d48f5556a9",
+        opt = true,
+        cmd = { "G", "Git" },
+    },
+
     -------------
     -- Hotkeys --
     -------------

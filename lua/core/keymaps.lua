@@ -58,6 +58,13 @@ M.telescope = {
     }
 }
 
+M.git = {
+    n = {
+        ["<leader>gb"] = {"<cmd> Git blame <CR>", "  git blame"},
+        ["<leader>gd"] = {"<cmd> Gitsigns diffthis <CR>", "  git diff"},
+    }
+}
+
 -- Whichkey groups
 M.groups = {
     n = {
