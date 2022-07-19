@@ -3,7 +3,6 @@
 -- Description : The scope of this file is to manage       --
 -- and initialize confgs for plugins                       --
 -------------------------------------------------------------
-
 -- First, add packer
 vim.cmd "packadd packer.nvim"
 
@@ -59,14 +58,54 @@ local plugins = {
         end
     },
 
+    ---
+
     -- nvim-treesitter
     -- Code higlisght support    
     -- Github link: https://github.com/nvim-treesitter/nvim-treesitter
     ["nvim-treesitter/nvim-treesitter"] = {
         commit = "6f1bf2feec45ff7c9d7844602fe175907b7db633",
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+        run = function()
+            require('nvim-treesitter.install').update({
+                with_sync = true
+            })
+        end,
         config = function()
             require("plugins.configs.treesitter")
+        end
+    },
+
+    ---
+
+    -- nvim-treesitter
+    -- Identation guides
+    -- Github link: https://github.com/lukas-reineke/indent-blankline.nvim
+    ["lukas-reineke/indent-blankline.nvim"] = {
+        commit = "4a58fe6e9854ccfe6c6b0f59abb7cb8301e23025",
+        config = function()
+            require("indent_blankline").setup {
+                filetype_exclude = {
+                    "help",
+                    "terminal",
+                    "alpha",
+                    "packer",
+                    "lspinfo",
+                    "TelescopePrompt",
+                    "TelescopeResults",
+                    "lsp-installer"
+                },
+                buftype_exclude = { "terminal" },
+                indentLine_enabled = 1,
+                show_current_context = true,
+                show_current_context_start = true,
+                show_first_indent_level = true,
+                show_trailing_blankline_indent = false,
+            }
+
+            vim.cmd[[ hi IndentBlankLineChar guifg=#665c54 gui=nocombine ]]
+            vim.cmd[[ hi IndentBlankLineSpaceChar guifg=#00ff00 gui=nocombine ]]
+            vim.cmd[[ hi IndentBlankLineSpaceCharBlankLine guifg=#00ffff gui=nocombine ]]
+            vim.cmd[[ hi IndentBlankLineContextHighlight guifg=#e98d26 gui=nocombine ]]
         end
     },
 
@@ -99,7 +138,7 @@ local plugins = {
             require("which-key").setup {}
 
             local utils = require "core.utils"
-            
+
             -- Load load Hotkeys
             vim.defer_fn(function()
                 utils.load_mappings()
@@ -108,7 +147,7 @@ local plugins = {
             local mapping_config = require "core.defaults"
             local mappings = mapping_config.mappings
             local mapping_groups = { groups = vim.deepcopy(mappings.groups) }
-            
+
             utils.load_mappings(mapping_groups)
         end
     }
