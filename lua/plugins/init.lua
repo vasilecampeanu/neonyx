@@ -217,8 +217,8 @@ local plugins = {
                 utils.load_mappings()
             end, 0)
 
-            local mapping_config = require "core.defaults"
-            local mappings = mapping_config.mappings
+            local mapping_config = "core.keymaps"
+            local mappings = mapping_config
             local mapping_groups = {
                 groups = vim.deepcopy(mappings.groups)
             }

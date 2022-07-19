@@ -27,8 +27,8 @@ M.load_mappings = function(mappings, mapping_opt)
         end
     end
 
-    local mapping_config = require "core.defaults"
-    mappings = mappings or vim.deepcopy(mapping_config.mappings)
+    local mapping_config = require "core.keymaps"
+    mappings = mappings or vim.deepcopy(mapping_config)
     mappings.lspconfig = nil
 
     for _, section in pairs(mappings) do
