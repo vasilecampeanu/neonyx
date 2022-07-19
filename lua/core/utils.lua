@@ -2,6 +2,8 @@
 -- Author: Vasile Campeanu                                 -- 
 -- Description : Function dependencies                     --
 -------------------------------------------------------------
+
+-- Variables
 local M = {}
 
 local merge_tb = vim.tbl_deep_extend

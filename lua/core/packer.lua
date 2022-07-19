@@ -3,6 +3,7 @@
 -- Description : Plugin Management                         --
 -------------------------------------------------------------
 
+-- Variables
 local M = {}
 
 -- Automatically install packer

@@ -3,6 +3,7 @@
 -- Description : Used to setup keybinds                    --
 -------------------------------------------------------------
 
+-- Variables
 local M = {}
 
 -- Local variables
@@ -57,6 +58,7 @@ M.telescope = {
     }
 }
 
+-- Whichkey groups
 M.groups = {
     n = {
         ["<leader>"] = {
