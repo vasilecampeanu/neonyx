@@ -27,8 +27,7 @@ local plugins = {
     -- Github link: https://github.com/nvim-lua/plenary.nvim.git
 
     ["nvim-lua/plenary.nvim"] = {
-        commit = "986ad71ae930c7d96e812734540511b4ca838aa2",
-        module = "plenary"
+        commit = "986ad71ae930c7d96e812734540511b4ca838aa2"
     },
 
     ---
@@ -37,8 +36,7 @@ local plugins = {
     -- Adds file type icons to NVim plugins
     -- Github link: https://github.com/kyazdani42/nvim-web-devicons
     ["kyazdani42/nvim-web-devicons"] = {
-        commit = "2d02a56189e2bde11edd4712fea16f08a6656944",
-        module = "nvim-web-devicons"
+        commit = "2d02a56189e2bde11edd4712fea16f08a6656944"
     },
 
     -- Test
@@ -173,6 +171,7 @@ local plugins = {
 
     ---
     
+    -- vim-fugitive
     -- Setting up fuggitive 
     -- Powerfull git integration
     -- Git link: https://github.com/tpope/vim-fugitive
@@ -180,6 +179,22 @@ local plugins = {
         commit = "d84582d5f767c11b7fb5ac2f5dca91d48f5556a9",
         opt = true,
         cmd = { "G", "Git" },
+    },
+
+
+    -- Setting up fuggitive 
+    -- Powerfull git integration
+    ["sindrets/diffview.nvim"] = {
+        after = "plenary.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("diffview").setup({
+                use_icons = true,
+                file_panel = {
+                    listing_style = "list"
+                }
+            })
+        end
     },
 
     -------------

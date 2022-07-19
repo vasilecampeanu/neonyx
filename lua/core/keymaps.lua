@@ -62,6 +62,9 @@ M.git = {
     n = {
         ["<leader>gb"] = {"<cmd> Git blame <CR>", "  git blame"},
         ["<leader>gd"] = {"<cmd> Gitsigns diffthis <CR>", "  git diff"},
+        ["<leader>gD"] = {"<cmd> DiffviewOpen <CR>", "  git diff open view"},
+        ["<leader>gh"] = {"<cmd> DiffviewFileHistory <CR>", "  git diff close"},
+        ["<leader>gq"] = {"<cmd> DiffviewClose <CR>", "  git diff close"}
     }
 }
 
