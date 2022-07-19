@@ -187,6 +187,7 @@ local plugins = {
         cmd = { "G", "Git" },
     },
 
+    ---
 
     -- Setting up fuggitive 
     -- Powerfull git integration
@@ -203,9 +204,108 @@ local plugins = {
         end
     },
 
-    -------------
-    -- Hotkeys --
-    -------------
+    ------------------------------
+    -- Language server protocol --
+    ------------------------------
+    
+    -- nvim-lsp-installer
+    -- Simple to use language server installer
+    -- Github link: https://github.com/williamboman/nvim-lsp-installer
+    ["williamboman/nvim-lsp-installer"] = {
+        commit = ""
+    },
+
+    ---
+
+    -- nvim-lspconfig
+    -- Language Server Protocol support
+    -- Github link: https://github.com/neovim/nvim-lspconfig.git
+    ["neovim/nvim-lspconfig"] = {
+        commit = "", 
+        after = "nvim-lsp-installer",
+        config = function()
+            require("plugins.configs.lsp")
+        end
+    },
+
+    ---------------------
+    -- Code completion --
+    ---------------------
+    
+    -- nvim-cmp
+    -- A completion plugin for neovim coded in Lua
+    -- This plugin is separated in multiple modules
+    -- Github link: https://github.com/hrsh7th/nvim-cmp.git
+    ["hrsh7th/nvim-cmp"] = {
+        commit = "",
+        config = function()
+            require("plugins.configs.cmp")
+        end
+    },
+
+    ---
+
+    -- nvim-lspconfig
+    -- Enable LSP
+    -- Github link: https://github.com/neovim/nvim-lspconfig
+    ["hrsh7th/cmp-nvim-lsp"] = {
+        commit = "",
+    },
+
+    ---
+    
+    -- cmp-buffer
+    -- Buffer completions
+    -- Github link: https://github.com/hrsh7th/cmp-buffer
+    ["hrsh7th/cmp-buffer"] = {
+        commit = "",
+    },
+
+    ---
+    
+    -- cmp-path
+    -- Path completions
+    -- Github link: https://github.com/hrsh7th/cmp-path
+    ["hrsh7th/cmp-path"] = {
+        commit = "",
+    },
+
+    --------------------
+    -- Code snippets ---
+    --------------------
+    
+    -- LuaSnip
+    -- Snippet Engine for Neovim written in Lua.
+    -- Github link: https://github.com/L3MON4D3/LuaSnip.git
+    ["L3MON4D3/LuaSnip"] = {
+        commit = "",
+    },
+
+    ---
+
+    -- cmp_luasnip
+    -- Used with cmp for snippet suggestions in completions panel.
+    -- Github link: https://github.com/saadparwaiz1/cmp_luasnip
+    ["saadparwaiz1/cmp_luasnip"] = {
+        commit = "",
+    },
+
+    ---
+
+    -- friendly-snippets
+    -- Library of snippets
+    -- Github link: https://github.com/rafamadriz/friendly-snippets
+    ["rafamadriz/friendly-snippets"] = {
+        commit = "",
+    },
+
+    ----------------------
+    -- Code management  --
+    ----------------------
+
+    --------------------
+    -- Hotkeys manger --
+    --------------------
 
     -- which-key.nvim
     -- Hotkeys visualizer
