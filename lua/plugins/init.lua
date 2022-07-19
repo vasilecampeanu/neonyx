@@ -3,9 +3,11 @@
 -- Description : The scope of this file is to manage       --
 -- and initialize confgs for plugins                       --
 -------------------------------------------------------------
+
 -- First, add packer
 vim.cmd "packadd packer.nvim"
 
+-- Plugin list
 local plugins = {
     ------------------
     -- Core plugins --
@@ -84,34 +86,21 @@ local plugins = {
         commit = "4a58fe6e9854ccfe6c6b0f59abb7cb8301e23025",
         config = function()
             require("indent_blankline").setup {
-                filetype_exclude = {
-                    "help",
-                    "terminal",
-                    "alpha",
-                    "packer",
-                    "lspinfo",
-                    "TelescopePrompt",
-                    "TelescopeResults",
-                    "lsp-installer"
-                },
-                buftype_exclude = { "terminal" },
+                filetype_exclude = {"help", "terminal", "alpha", "packer", "lspinfo", "TelescopePrompt",
+                                    "TelescopeResults", "lsp-installer"},
+                buftype_exclude = {"terminal"},
                 indentLine_enabled = 1,
                 show_current_context = true,
                 show_current_context_start = true,
                 show_first_indent_level = true,
-                show_trailing_blankline_indent = false,
+                show_trailing_blankline_indent = false
             }
-
-            vim.cmd[[ hi IndentBlankLineChar guifg=#665c54 gui=nocombine ]]
-            vim.cmd[[ hi IndentBlankLineSpaceChar guifg=#00ff00 gui=nocombine ]]
-            vim.cmd[[ hi IndentBlankLineSpaceCharBlankLine guifg=#00ffff gui=nocombine ]]
-            vim.cmd[[ hi IndentBlankLineContextHighlight guifg=#e98d26 gui=nocombine ]]
         end
     },
 
-    ---------------------
-    -- File Management --
-    ---------------------
+    -----------------------------------
+    -- File Management Accessibility --
+    -----------------------------------
 
     -- telescope.nvim
     -- Find, Filter, Preview, Pick. All lua, all the time
@@ -121,6 +110,52 @@ local plugins = {
         cmd = "Telescope",
         config = function()
             require("plugins.configs.telescope")
+        end
+    },
+
+    ---------------------
+    -- Version Control --
+    ---------------------
+
+    -- gitsigns.nvim
+    -- Version control manager
+    -- Github link: https://github.com/lewis6991/gitsigns.nvim
+    ["lewis6991/gitsigns.nvim"] = {
+        config = function()
+            require('gitsigns').setup({
+                signs = {
+                    add = {
+                        hl = "GitSignsAdd",
+                        text = "▎",
+                        numhl = "GitSignsAddNr",
+                        linehl = "GitSignsAddLn"
+                    },
+                    change = {
+                        hl = "GitSignsChange",
+                        text = "▎",
+                        numhl = "GitSignsChangeNr",
+                        linehl = "GitSignsChangeLn"
+                    },
+                    delete = {
+                        hl = "GitSignsDelete",
+                        text = "契",
+                        numhl = "GitSignsDeleteNr",
+                        linehl = "GitSignsDeleteLn"
+                    },
+                    topdelete = {
+                        hl = "GitSignsDelete",
+                        text = "契",
+                        numhl = "GitSignsDeleteNr",
+                        linehl = "GitSignsDeleteLn"
+                    },
+                    changedelete = {
+                        hl = "GitSignsChange",
+                        text = "▎",
+                        numhl = "GitSignsChangeNr",
+                        linehl = "GitSignsChangeLn"
+                    }
+                }
+            })
         end
     },
 
@@ -146,7 +181,9 @@ local plugins = {
 
             local mapping_config = require "core.defaults"
             local mappings = mapping_config.mappings
-            local mapping_groups = { groups = vim.deepcopy(mappings.groups) }
+            local mapping_groups = {
+                groups = vim.deepcopy(mappings.groups)
+            }
 
             utils.load_mappings(mapping_groups)
         end
