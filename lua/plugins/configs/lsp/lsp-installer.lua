@@ -4,7 +4,7 @@ if not status_ok then
     return
 end
 
-local servers = { "sumneko_lua", "pyright", "tsserver" }
+local servers = { "sumneko_lua", "pyright", "tsserver", "eslint", "html" }
 
 local options = {
     ensure_installed = servers,
@@ -60,3 +60,4 @@ for _, server in pairs(servers) do
 
     lspconfig[server].setup(opts)
 end
+

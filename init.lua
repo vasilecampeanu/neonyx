@@ -10,4 +10,3 @@ require("core")
 -- Plugin management
 -- Setup packer + Plugins
 require("core.packer").bootstrap()
-require("plugins")

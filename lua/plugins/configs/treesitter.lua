@@ -24,7 +24,7 @@ configs.setup({
 
     -- List of parsers to ignore installing (for "all")
     ignore_install = { "" },
-    
+
     -- Highlight settings
     highlight = {
         -- `false` will disable the whole extension

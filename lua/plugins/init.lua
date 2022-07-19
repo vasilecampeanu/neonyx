@@ -13,38 +13,40 @@ local plugins = {
     -- Core plugins --
     ------------------
 
-    -- packer.nvim
-    -- Package manager
+    -- Title: packer.nvim
+    -- Description: Package manager, written in lua for neovim.
     -- Github link: https://github.com/wbthomason/packer.nvim.git
     ["wbthomason/packer.nvim"] = {
-        commit = "494fd5999b19e29992eb0978c4fa8988d2023ad8"
+        commit = ""
     },
 
     ---
 
-    -- plenary.nvim
-    -- All the lua functions I don't want to write twice.
+    -- Title: plenary.nvim
+    -- Description: All the lua functions I don't want to write twice. 
+    --              This is used as a dependency by other plugins
     -- Github link: https://github.com/nvim-lua/plenary.nvim.git
-
     ["nvim-lua/plenary.nvim"] = {
-        commit = "986ad71ae930c7d96e812734540511b4ca838aa2"
+        commit = ""
     },
 
     ---
 
-    -- Web devicons
-    -- Adds file type icons to NVim plugins
+    -- Title: nvim-web-devicons"
+    -- Description: Used as a dependency by other plugins, provides icons. 
     -- Github link: https://github.com/kyazdani42/nvim-web-devicons
     ["kyazdani42/nvim-web-devicons"] = {
-        commit = "2d02a56189e2bde11edd4712fea16f08a6656944"
+        commit = ""
     },
-
-    -- Onedarker colorscheme
-    -- Onedark inspired colorscheme written in lua
+ 
+    -- Title: tokyonight.nvim
+    -- Description:
     -- Github link: 
     ["folke/tokyonight.nvim"] = {
         commit = "",
         config = function()
+            -- Configure color scheme.
+
             -- Variables
             local colorscheme = "tokyonight"
             local present, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
@@ -58,11 +60,11 @@ local plugins = {
 
     ---
 
-    -- nvim-treesitter
-    -- Code higlisght support    
+    -- Title: nvim-treesitter
+    -- Description: Provides code higlisght support    
     -- Github link: https://github.com/nvim-treesitter/nvim-treesitter
     ["nvim-treesitter/nvim-treesitter"] = {
-        commit = "6f1bf2feec45ff7c9d7844602fe175907b7db633",
+        commit = "",
         run = function()
             require('nvim-treesitter.install').update({
                 with_sync = true
@@ -75,15 +77,14 @@ local plugins = {
 
     ---
 
-    -- nvim-treesitter
-    -- Identation guides
+    -- Title: nvim-treesitter
+    -- Description: Identation guides
     -- Github link: https://github.com/lukas-reineke/indent-blankline.nvim
     ["lukas-reineke/indent-blankline.nvim"] = {
-        commit = "4a58fe6e9854ccfe6c6b0f59abb7cb8301e23025",
+        commit = "",
         config = function()
             require("indent_blankline").setup {
-                filetype_exclude = {"help", "terminal", "alpha", "packer", "lspinfo", "TelescopePrompt",
-                                    "TelescopeResults", "lsp-installer"},
+                filetype_exclude = {"help", "terminal", "alpha", "packer", "lspinfo", "TelescopePrompt", "TelescopeResults", "lsp-installer"},
                 buftype_exclude = {"terminal"},
                 indentLine_enabled = 1,
                 show_current_context = true,
@@ -97,10 +98,11 @@ local plugins = {
     -----------------------------------
     -- File Management Accessibility --
     -----------------------------------
-    
+
     -- alpha-nvim
     -- Home page manager
     ["goolord/alpha-nvim"] = {
+        commit = "",
         config = function()
             require "plugins.configs.alpha"
         end,
@@ -112,7 +114,7 @@ local plugins = {
     -- Find, Filter, Preview, Pick. All lua, all the time
     -- Github link: https://github.com/nvim-telescope/telescope.nvim
     ["nvim-telescope/telescope.nvim"] = {
-        commit = "b79cd6c88b3d96b0f49cb7d240807cd59b610cd8",
+        commit = "",
         cmd = "Telescope",
         config = function()
             require("plugins.configs.telescope")
@@ -127,6 +129,7 @@ local plugins = {
     -- Version control manager
     -- Github link: https://github.com/lewis6991/gitsigns.nvim
     ["lewis6991/gitsigns.nvim"] = {
+        commit = "",
         config = function()
             require('gitsigns').setup({
                 signs = {
@@ -253,7 +256,7 @@ local plugins = {
     },
 
     ---
-    
+
     -- cmp-buffer
     -- Buffer completions
     -- Github link: https://github.com/hrsh7th/cmp-buffer
@@ -262,7 +265,7 @@ local plugins = {
     },
 
     ---
-    
+
     -- cmp-path
     -- Path completions
     -- Github link: https://github.com/hrsh7th/cmp-path
@@ -273,7 +276,7 @@ local plugins = {
     --------------------
     -- Code snippets ---
     --------------------
-    
+
     -- LuaSnip
     -- Snippet Engine for Neovim written in Lua.
     -- Github link: https://github.com/L3MON4D3/LuaSnip.git
@@ -303,14 +306,48 @@ local plugins = {
     -- Code management  --
     ----------------------
 
+    -- vim-illuminate
+    -- Github link: https://github.com/RRethy/vim-illuminate.git
+    ["RRethy/vim-illuminate"] = {
+        commit = "",
+    },
+
+    ---
+
+    -- Comment.nvim
+    -- Intelligent comments
+    -- Github links: https://github.com/numToStr/Comment.nvim
+    ["numToStr/Comment.nvim"] = {
+        commit = "",
+    },
+
+    ---
+
+    -- nvim-ts-context-commentstring
+    -- Smart comments in files with multiple languages like .jsx & .tsx
+    -- Github links: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+    ["JoosepAlviste/nvim-ts-context-commentstring"] = {
+        commit = "",
+        after = "nvim-treesitter"
+    },
+    
+    ---
+
+    -- nvim-autopairs
+    -- Get autopairs completion working
+    -- Github link: https://github.com/windwp/nvim-autopairs
+    ["windwp/nvim-autopairs"] = {
+        commit = "",
+    },
+
     --------------------
     -- Hotkeys manger --
     --------------------
 
     -- which-key.nvim
-    -- Hotkeys visualizer
-    -- Only load whichkey after all the gui
+    -- Hotkeys visualizer, helps to visalize key maps.
     -- Github link: https://github.com/folke/which-key.nvim
+    -- !IMPORTANT: Only load whichkey after all the gui
     ["folke/which-key.nvim"] = {
         commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71",
         config = function()
@@ -318,7 +355,6 @@ local plugins = {
 
             local utils = require "core.utils"
 
-            -- Load load Hotkeys
             vim.defer_fn(function()
                 utils.load_mappings()
             end, 0)
