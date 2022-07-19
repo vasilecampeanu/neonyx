@@ -39,18 +39,14 @@ local plugins = {
         commit = "2d02a56189e2bde11edd4712fea16f08a6656944"
     },
 
-    -- Test
-
-    ---
-
     -- Onedarker colorscheme
     -- Onedark inspired colorscheme written in lua
-    -- Github link: https://github.com/lunarvim/onedarker
-    ["lunarvim/onedarker"] = {
-        commit = "b79ebd09779472c00e19c38caf698aa43b51fe1c",
+    -- Github link: 
+    ["folke/tokyonight.nvim"] = {
+        commit = "",
         config = function()
             -- Variables
-            local colorscheme = "onedarker"
+            local colorscheme = "tokyonight"
             local present, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
             -- Check presence
@@ -101,6 +97,16 @@ local plugins = {
     -----------------------------------
     -- File Management Accessibility --
     -----------------------------------
+    
+    -- alpha-nvim
+    -- Home page manager
+    ["goolord/alpha-nvim"] = {
+        config = function()
+            require "plugins.configs.alpha"
+        end,
+    },
+
+    ---
 
     -- telescope.nvim
     -- Find, Filter, Preview, Pick. All lua, all the time
