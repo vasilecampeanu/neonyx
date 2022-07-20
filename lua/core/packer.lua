@@ -1,33 +1,5 @@
--------------------------------------------------------------
--- Author: Vasile Campeanu                                 --
--- Description : Plugin Management                         --
--------------------------------------------------------------
-
 -- Variables
 local M = {}
-
--- Automatically install packer
--- Make packer manage itself
-M.bootstrap = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-
-    -- Make packer installer to float and set a more readable background color
-    vim.api.nvim_set_hl(0, "NormalFloat", {
-        bg = "#1e222a"
-    })
-
-    if fn.empty(fn.glob(install_path)) > 0 then
-        print "Cloning packer .."
-
-        fn.system {"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path}
-
-        -- Install plugins + compile their configs
-        vim.cmd "packadd packer.nvim"
-        require "plugins"
-        vim.cmd "PackerSync"
-    end
-end
 
 -- Packer options
 M.options = {
@@ -74,4 +46,28 @@ M.run = function(plugins)
     end)
 end
 
+-- Automatically install packer
+-- Make packer manage itself
+M.bootstrap = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+
+    -- Make packer installer to float and set a more readable background color
+    vim.api.nvim_set_hl(0, "NormalFloat", {
+        bg = "#1e222a"
+    })
+
+    if fn.empty(fn.glob(install_path)) > 0 then
+        print "Cloning packer .."
+
+        fn.system {"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path}
+
+        -- Install plugins + compile their configs
+        vim.cmd "packadd packer.nvim"
+        require "plugins"
+        vim.cmd "PackerSync"
+    end
+end
+
+-- Return matrix object
 return M

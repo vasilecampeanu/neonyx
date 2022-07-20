@@ -1,12 +1,3 @@
--------------------------------------------------------------
--- Author: Vasile Campeanu                                 --
--- Description : The scope of this file is to manage       --
--- and initialize confgs for plugins                       --
--------------------------------------------------------------
-
--- First, add packer
-vim.cmd "packadd packer.nvim"
-
 -- Plugin list
 local plugins = {
     ------------------

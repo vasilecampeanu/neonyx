@@ -1,8 +1,3 @@
--------------------------------------------------------------
--- Author: Vasile Campeanu                                 -- 
--- Description : Configuration file for telescope          --
--------------------------------------------------------------
-
 -- Variables
 local present, telescope = pcall(require, "telescope")
 

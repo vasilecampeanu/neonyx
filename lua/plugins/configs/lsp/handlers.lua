@@ -1,15 +1,18 @@
+-- Viariables
 local M = {}
+local presence, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-
-if not status_cmp_ok then
+-- Check presence
+if not presence then
     return
 end
 
+-- Capabilities
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
+-- Settings
 M.setup = function()
     local signs = {
         {
@@ -63,10 +66,12 @@ M.setup = function()
     })
 end
 
+-- Lsp keybids
 local function lsp_keymaps(bufnr)
     -- ... configs
 end
 
+-- Attach function
 M.on_attach = function(client, bufnr)
     -- Set LSP hotkeys
     lsp_keymaps(bufnr)
@@ -80,4 +85,5 @@ M.on_attach = function(client, bufnr)
     illuminate.on_attach(client)
 end
 
+-- Return matrix object
 return M

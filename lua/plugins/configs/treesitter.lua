@@ -1,8 +1,3 @@
--------------------------------------------------------------
--- Author: Vasile Campeanu                                 -- 
--- Description : Code highlight plugin config              --
--------------------------------------------------------------
-
 -- Variables
 local present, configs = pcall(require, "nvim-treesitter.configs")
 

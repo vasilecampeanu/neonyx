@@ -1,11 +1,15 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+-- Variables
+local presence, lsp_installer = pcall(require, "nvim-lsp-installer")
 
-if not status_ok then
+-- Check presence
+if not presence then
     return
 end
 
+-- List of severs
 local servers = { "sumneko_lua", "pyright", "tsserver", "eslint", "html" }
 
+-- Lsp settings
 local options = {
     ensure_installed = servers,
     ui = {
@@ -24,19 +28,21 @@ local options = {
             uninstall_server = "X",
         },
     },
-    max_concurrent_installers = 10,
+    max_concurrent_installers = 10
 }
 
 lsp_installer.setup(options)
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+local lspconfig_presence, lspconfig = pcall(require, "lspconfig")
 
-if not lspconfig_status_ok then
+-- Check presence
+if not lspconfig_presence then
     return
 end
 
 local opts = {}
 
+-- Attach configs
 for _, server in pairs(servers) do
     opts = {
         on_attach = require("plugins.configs.lsp.handlers").on_attach,
@@ -60,4 +66,3 @@ for _, server in pairs(servers) do
 
     lspconfig[server].setup(opts)
 end
-

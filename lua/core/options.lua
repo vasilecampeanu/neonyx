@@ -1,8 +1,3 @@
--------------------------------------------------------------
--- Author: Vasile Campeanu                                 --
--- Description : Default nvim options                      --
--------------------------------------------------------------
-
 -- Basic Options
 local options = {
     -- Fileencoding
@@ -28,12 +23,9 @@ local options = {
     showtabline = 0,
     pumheight = 10,
 
-    -- Identation settings
-    tabstop = 4,
-    shiftwidth = 4,
-    softtabstop = 4,
-    expandtab = true,
-    smartindent = true,
+    -- Splits
+    splitbelow = true,                      
+    splitright = true,
 
     -- Scroll offset
     scrolloff = 8,
@@ -43,15 +35,18 @@ local options = {
     hlsearch = true,
     ignorecase = true,
 
+    -- Identation settings
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 4,
+    expandtab = true,
+    smartindent = true,
+    
     -- Completion
     completeopt = { "menuone", "noselect" },
     timeoutlen = 500,
     updatetime = 300,
-
-    -- Splits
-    splitbelow = true,                      
-    splitright = true,
-
+    
     -- Misc
     showmode = true,
     clipboard = "unnamedplus",
@@ -63,39 +58,4 @@ local options = {
 -- Apply options
 for k, v in pairs(options) do
     vim.opt[k] = v
-end
-
--- Disable some builtin vim plugins
-local default_plugins = {
-    "2html_plugin",
-    "getscript",
-    "getscriptPlugin",
-    "gzip",
-    "logipat",
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-    "matchit",
-    "tar",
-    "tarPlugin",
-    "rrhelper",
-    "spellfile_plugin",
-    "vimball",
-    "vimballPlugin",
-    "zip",
-    "zipPlugin",
-    "tutor",
-    "rplugin",
-    "syntax",
-    "synmenu",
-    "optwin",
-    "compiler",
-    "bugreport",
-    "ftplugin",
-}
-
--- Apply plugin remove
-for _, plugin in pairs(default_plugins) do
-    vim.g["loaded_" .. plugin] = 1
 end

@@ -1,8 +1,3 @@
--------------------------------------------------------------
--- Author: Vasile Campeanu                                 --
--- Description : Used to setup keybinds                    --
--------------------------------------------------------------
-
 -- Variables
 local M = {}
 
@@ -47,4 +42,5 @@ M.groups = {
     },
 }
 
+-- Return matrix object
 return M

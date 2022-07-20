@@ -39,6 +39,7 @@ M.load_mappings = function(mappings, mapping_opt)
     end
 
     local mapping_config = require "core.keymaps"
+
     mappings = mappings or vim.deepcopy(mapping_config)
     mappings.lspconfig = nil
 
@@ -61,4 +62,5 @@ M.load_mappings = function(mappings, mapping_opt)
     end
 end
 
+-- Return matrix object
 return M

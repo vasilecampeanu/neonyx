@@ -1,8 +1,10 @@
-local status_ok, _ = pcall(require, "lspconfig")
+-- Variables
+local presence, _ = pcall(require, "lspconfig")
 
-if not status_ok then
+-- Check presence
+if not presence then
     return
 end
 
-require "plugins.configs.lsp.lsp-installer"
+require("plugins.configs.lsp.lsp-installer")
 require("plugins.configs.lsp.handlers").setup()

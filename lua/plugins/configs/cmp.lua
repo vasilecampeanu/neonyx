@@ -1,20 +1,19 @@
--------------------------------------------------------------
--- Author: Vasile Campeanu                                 --
--------------------------------------------------------------
-
 -- Define namespace
 local fn = vim.fn
 
 -- Initialize cmp
-local cmp_status_ok, cmp = pcall(require, "cmp")
+local cmp_presence, cmp = pcall(require, "cmp")
 
-if not cmp_status_ok then
+-- Check presence
+if not cmp_presence then
     return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
+-- Initialize luasnip
+local snip_presence, luasnip = pcall(require, "luasnip")
 
-if not snip_status_ok then
+-- Check presence
+if not snip_presence then
     return
 end
 
@@ -43,7 +42,45 @@ cmp.setup({
     },
     formatting = {
         format = function(_, vim_item)
-            local icons = require("ui.icons").lspkind
+            local icons = {
+                Namespace = "",
+                Text = " ",
+                Method = " ",
+                Function = " ",
+                Constructor = " ",
+                Field = "ﰠ ",
+                Variable = " ",
+                Class = "ﴯ ",
+                Interface = " ",
+                Module = " ",
+                Property = "ﰠ ",
+                Unit = "塞 ",
+                Value = " ",
+                Enum = " ",
+                Keyword = " ",
+                Snippet = " ",
+                Color = " ",
+                File = " ",
+                Reference = " ",
+                Folder = " ",
+                EnumMember = " ",
+                Constant = " ",
+                Struct = "פּ ",
+                Event = " ",
+                Operator = " ",
+                TypeParameter = " ",
+                Table = "",
+                Object = " ",
+                Tag = "",
+                Array = "[]",
+                Boolean = " ",
+                Number = " ",
+                Null = "ﳠ",
+                String = " ",
+                Calendar = "",
+                Watch = " ",
+                Package = "",
+            }
             vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
             return vim_item
         end,

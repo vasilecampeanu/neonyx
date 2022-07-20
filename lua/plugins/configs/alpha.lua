@@ -1,9 +1,12 @@
+-- Variables
 local present, alpha = pcall(require, "alpha")
 
+-- Check presence
 if not present then
     return
 end
 
+-- Home buttons
 local function button(sc, txt, keybind)
     local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
 
